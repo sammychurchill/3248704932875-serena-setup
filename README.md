@@ -44,14 +44,19 @@ Helper bash aliases and functions to streamline Claude Code + Serena usage:
 ### `.local.env.example`
 Example environment variable configuration file. Copy to `.local.env` and customize for your setup.
 
-## Usage
+## Notes
 
-1. Copy relevant configuration files to your Claude Code project
-2. Source the bash aliases in your `.bashrc` or `.zshrc`:
-   ```bash
-   source /path/to/bash_scripts/alias.sh
-   ```
-3. Copy `.local.env.example` to `.local.env` and configure as needed
-4. Use `cc` to launch Claude Code with environment variables loaded
-5. Use `claudette` when you need to run Claude Code without Serena
+Source the bash aliases in your `.bashrc` or `.zshrc`:
+```bash
+source /path/to/bash_scripts/alias.sh
+```
 
+Copy `.local.env.example` to `.local.env` and configure as needed
+
+Use `cc` to launch Claude Code with environment variables loaded
+Use `claudette` when you need to run Claude Code without Serena
+ 
+Setup serena as per documentation (I just used the claude code pluging) and then add the files from this project. settings.json will need to be merged with existing settings.json if claude has already been initilised.
+
+Local env variable is to use the new claude code feature to try and delay MCP tool use until necessary
+https://code.claude.com/docs/en/mcp#scale-with-mcp-tool-search
