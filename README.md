@@ -14,7 +14,7 @@ Claude Code project configuration including:
 
 ### `.serena/`
 Serena-specific configuration:
-- `memories/` - Persistent memory files for cross-conversation context
+- `memories/critical_behaviors.md` - This gets read in before all tool calls
 
 ### `bash_scripts/`
 Helper bash aliases and functions to streamline Claude Code + Serena usage:
@@ -55,9 +55,3 @@ Example environment variable configuration file. Copy to `.local.env` and custom
 4. Use `cc` to launch Claude Code with environment variables loaded
 5. Use `claudette` when you need to run Claude Code without Serena
 
-## Integration Benefits
-
-- Automatic Serena initialization through hooks
-- Environment variable management for project-specific configurations
-- Enforced semantic code operations over bash file commands
-- Persistent memory across conversations
