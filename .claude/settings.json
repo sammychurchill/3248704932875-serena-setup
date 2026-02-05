@@ -1,0 +1,99 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/serena-gate.py",
+            "timeout": 20,
+            "statusMessage": "Checking Serena initialization..."
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/block-bash-use-serena.py",
+            "timeout": 20,
+            "statusMessage": "Validating bash command..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/serena-gate.py",
+            "timeout": 20,
+            "statusMessage": "Updating Serena state..."
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/remind-run-tests.py",
+            "timeout": 20,
+            "statusMessage": "Checking test reminders..."
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Edit(*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git show*)",
+      "Bash(git branch*)",
+      "Bash(git remote*)",
+      "Bash(git ls-files*)",
+      "Bash(git ls-tree*)",
+      "Bash(git rev-parse*)",
+      "Bash(git describe*)",
+      "Bash(git tag*)",
+      "Bash(git fetch*)",
+      "Bash(git add*)",
+      "Bash(git mv*)",
+      "Bash(git rm*)",
+      "Bash(git commit*)",
+      "Bash(git stash*)",
+      "Bash(git config --get*)",
+      "Bash(git config --list*)",
+      "Bash(git worktree*)",
+      "Bash(git cat-file*)",
+      "mcp__plugin_serena_serena__check_onboarding_performed",
+      "mcp__plugin_serena_serena__onboarding",
+      "mcp__plugin_serena_serena__list_dir",
+      "mcp__plugin_serena_serena__read_file",
+      "mcp__plugin_serena_serena__get_symbols_overview",
+      "mcp__plugin_serena_serena__create_text_file",
+      "mcp__plugin_serena_serena__activate_project",
+      "mcp__plugin_serena_serena__initial_instructions",
+      "mcp__plugin_serena_serena__read_memory",
+      "mcp__plugin_serena_serena__replace_content",
+      "mcp__plugin_serena_serena__get_current_config",
+      "mcp__plugin_serena_serena__list_memories",
+      "mcp__plugin_serena_serena__search_for_pattern",
+      "mcp__plugin_serena_serena__find_file"
+    ],
+    "deny": [
+      "Bash(git push*--force*)",
+      "Bash(git rebase*)",
+      "Bash(git commit*--no-verify*)",
+      "Bash(git commit*--amend*)"
+    ],
+    "ask": [
+      "Bash(rm *-f*)",
+      "Bash(rm *-r*)"
+    ]
+  },
+  "enabledPlugins": {
+    "serena@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  }
+}
