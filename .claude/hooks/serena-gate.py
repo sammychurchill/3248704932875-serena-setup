@@ -6,7 +6,6 @@ Requires BOTH activate_project AND initial_instructions before unlocking tools.
 import os
 import sys
 import json
-import hashlib
 import fcntl
 
 MARKER_DIR = "/tmp"
