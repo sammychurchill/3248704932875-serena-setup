@@ -270,8 +270,7 @@ def main():
             'eslint': 'npm run lint or npm run lint:fix',
             'vite': 'npm run dev or npm run build',
             'wrangler': 'npm run deploy or npm run db:migrate:local',
-            'drizzle-kit': 'npm run db:studio',
-            'tsx': 'npm run import:lichess',
+            'drizzle-kit': 'npm run db:studio'
         }.get(cmd_name, 'npm run <script-name>')
 
         result = {
